@@ -44,18 +44,12 @@ for n1, n2 in links:
     cv2.circle(img, tuple(nodes[n1].to(torch.int).tolist()), 2, (0, 255, 255),3)
     cv2.circle(img, tuple(nodes[n2].to(torch.int).tolist()), 2, (0, 255, 255),3)
 
-Lsx = nodes[5][0].to(torch.int).tolist()
-Lsy = nodes[5][1].to(torch.int).tolist()
+Lsx, Lsy = nodes[5][0], nodes[5][1]
+Rsx, Rsy = nodes[6][0], nodes[6][1]
+Lhx, Lhy = nodes[11][0], nodes[11][1]
+Rhx, Rhy = nodes[12][0], nodes[12][1]
 
-Rsx = nodes[6][0].to(torch.int).tolist()
-Rsy = nodes[6][1].to(torch.int).tolist()
-
-Lhx = nodes[11][0].to(torch.int).tolist()
-Lhy = nodes[11][1].to(torch.int).tolist()
-
-Rhx = nodes[12][0].to(torch.int).tolist()
-Rhy = nodes[12][1].to(torch.int).tolist()
-cv2.circle(img, (int((Lsx+Rsx+Lhx+Rhx)/4), int((Lsy+Rsy+Lhy+Rhy)/4)), 2, (255, 0, 255), 6)
+cv2.circle(img, (int((Lsx+Rsx+Lhx+Rhx)/4), int((Lsy+Rsy+Lhy+Rhy)/4)), 3, (255, 0, 255), 6)
 
 # 画像を画面に表示する．
 cv2.imshow("", img)
