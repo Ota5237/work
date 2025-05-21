@@ -4,7 +4,7 @@ import torch
 
 model = YOLO("yolo11x-pose.pt")
 
-results = model("ex1.jpg")
+results = model("image.jpg")
 # 1人目のキー・ポイント(x,y)を獲得する．
 # 2人目はresults[0].keypoints.data[1]に格納されている．
 nodes = results[0].keypoints.data[0][:, :2]
@@ -38,7 +38,7 @@ for n1, n2 in links:
         nodes[n1].to(torch.int).tolist(),
         nodes[n2].to(torch.int).tolist(),
         (0, 0, 255),
-        thickness=1,
+        thickness=2,
     )
     
     cv2.circle(img, tuple(nodes[n1].to(torch.int).tolist()), 2, (0, 255, 255),3)
